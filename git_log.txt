@@ -1,0 +1,11 @@
+﻿commit c52edcb7378e4fd6b80275d08016f78a1718162d
+Author: LeonisouzaM <34925982+LeonisouzaM@users.noreply.github.com>
+Date:   Fri Feb 20 19:07:38 2026 -0300
+
+    salvando antes do pull
+
+commit 25e800a6b40334f6764e6cbbc988190f78f6037b
+Author: LeonisouzaM <34925982+LeonisouzaM@users.noreply.github.com>
+Date:   Fri Feb 20 18:52:18 2026 -0300
+
+    first commit
