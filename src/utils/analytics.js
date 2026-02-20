@@ -109,14 +109,17 @@ export function trackEvent(eventName, params = {}) {
         });
     }
 
-    // Meta Pixel custom event & standard events mapping
+    // Meta Pixel standard events exactly as mapped (no custom events, no unnecessary params)
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventName, eventData);
-
-        // Map to Standard Meta Events for better Ad Optimization
-        if (eventName === 'funnel_start') window.fbq('track', 'ViewContent', eventData);
-        if (eventName === 'quiz_completed') window.fbq('track', 'Lead', eventData);
-        if (eventName === 'checkout_view' || eventName === 'checkout_redirect') window.fbq('track', 'InitiateCheckout', { currency: 'MXN', value: 185.60, ...eventData });
+        if (eventName === 'funnel_start' || eventName === 'offer_view') {
+            window.fbq('track', 'ViewContent');
+        } else if (eventName === 'quiz_completed') {
+            window.fbq('track', 'Lead');
+        } else if (eventName === 'checkout_view' || eventName === 'checkout_redirect') {
+            window.fbq('track', 'InitiateCheckout');
+        } else if (eventName === 'certificate_view') {
+            window.fbq('track', 'Purchase', { value: 185.60, currency: 'MXN' });
+        }
     }
 
     // Debug logging in development
