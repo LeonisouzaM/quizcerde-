@@ -111,14 +111,26 @@ export function trackEvent(eventName, params = {}) {
 
     // Meta Pixel standard events exactly as mapped (no custom events, no unnecessary params)
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        if (eventName === 'funnel_start' || eventName === 'offer_view') {
-            window.fbq('track', 'ViewContent');
-        } else if (eventName === 'quiz_completed') {
-            window.fbq('track', 'Lead');
-        } else if (eventName === 'checkout_view' || eventName === 'checkout_redirect') {
-            window.fbq('track', 'InitiateCheckout');
-        } else if (eventName === 'certificate_view') {
-            window.fbq('track', 'Purchase', { value: 185.60, currency: 'MXN' });
+        const standardEventMapping = {
+            'funnel_start': { name: 'ViewContent' },
+            'result_view': { name: 'Lead' }, // Final do Quiz (quando vira lead)
+            'offer_view': { name: 'ViewContent' } // Página de Vendas (SPA)
+            // REMOVED: checkout_view (InitiateCheckout) so it NEVER fires in the SPA. 
+            // The Checkout URL (Hotmart) handles its own InitiateCheckout.
+        };
+
+        const fbqEvent = standardEventMapping[eventName];
+        if (fbqEvent) {
+            if (fbqEvent.name === 'Lead') {
+                if (!window.leadTracked) {
+                    window.fbq('track', 'Lead');
+                    window.leadTracked = true;
+                }
+            } else if (fbqEvent.body) {
+                window.fbq('track', fbqEvent.name, fbqEvent.body);
+            } else {
+                window.fbq('track', fbqEvent.name);
+            }
         }
     }
 
