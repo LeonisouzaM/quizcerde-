@@ -1,0 +1,96 @@
+import React, { useEffect } from 'react';
+import StepLayout from './StepLayout';
+import { copy } from '../data/quizData';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
+import {
+    CTA_IDS,
+    FUNNEL_STEPS,
+    trackCheckoutView,
+    trackCheckoutCTAClick,
+    trackCheckoutRedirect
+} from '../utils/analytics';
+
+const Payment = ({ onPayment }) => {
+    const { text, features, button, price, cardTitle, footerText } = copy.payment;
+    const checkoutUrl = 'https://pay.hotmart.com/W104315897A?checkoutMode=10';
+
+    useEffect(() => {
+        trackCheckoutView();
+    }, []);
+
+    const handleCheckoutClick = () => {
+        trackCheckoutCTAClick();
+        trackCheckoutRedirect(checkoutUrl);
+        window.open(checkoutUrl, '_blank');
+    };
+
+    return (
+        <StepLayout data-funnel-step={FUNNEL_STEPS.STEP_03_CHECKOUT_REDIRECT}>
+            {/* Header Text + Price Inline/Block */}
+            <div className="text-center mb-8 px-2">
+                <h2 className="text-text-main font-bold text-xl md:text-2xl leading-tight">
+                    {text} <span className="text-success font-extrabold">{price}.</span>
+                </h2>
+            </div>
+
+            {/* Information Card - White Background */}
+            <div className="bg-white p-6 rounded-xl border border-border-light shadow-sm mb-6 text-left w-full">
+                <h3 className="text-center font-bold text-text-highlight mb-6 text-lg">
+                    {cardTitle}
+                </h3>
+                <ul className="space-y-4">
+                    {features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-3 text-sm text-text-main">
+                            <span className="text-success mt-0.5 flex-shrink-0">
+                                <CheckCircle2 size={20} className="stroke-[2px]" />
+                            </span>
+                            <span dangerouslySetInnerHTML={{ __html: feature }}></span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {/* Operational Tax Footer Text */}
+            <p className="text-xs text-text-muted text-center mb-8 px-4 leading-relaxed">
+                {footerText}
+            </p>
+
+            {/* CTA Button */}
+            <div className="flex flex-col gap-4 mb-6">
+                <p className="text-center text-success font-bold text-sm md:text-base leading-tight px-2">
+                    {copy.payment.ctaText}
+                </p>
+                <button
+                    id={CTA_IDS.CHECKOUT_UNLOCK_CERTIFICATE}
+                    className="btn w-full btn-success py-4 text-lg shadow-lg hover:shadow-xl transition-all"
+                    onClick={handleCheckoutClick}
+                    data-funnel-step={FUNNEL_STEPS.STEP_03_CHECKOUT_REDIRECT}
+                    data-cta-position="3.1"
+                >
+                    {button}
+                </button>
+            </div>
+
+            {/* Simulation Link */}
+            <div className="text-center">
+                <button
+                    id={CTA_IDS.CHECKOUT_SIMULATE_PAYMENT}
+                    className="text-xs text-text-muted underline hover:text-primary"
+                    onClick={onPayment}
+                    data-funnel-step={FUNNEL_STEPS.STEP_03_CHECKOUT_REDIRECT}
+                    data-cta-position="3.1-sim"
+                >
+                    (Simular Pago Exitoso: Ver Certificado)
+                </button>
+            </div>
+
+            {/* Security Footer */}
+            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-text-muted opacity-75">
+                <ShieldCheck size={14} />
+                <span>Pago 100% Seguro y Encriptado</span>
+            </div>
+        </StepLayout>
+    );
+};
+
+export default Payment;
