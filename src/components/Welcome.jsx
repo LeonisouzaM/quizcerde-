@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import SimpleStepLayout from './SimpleStepLayout';
 import { copy } from '../data/quizData';
 import { CTA_IDS, FUNNEL_STEPS, trackFunnelStart } from '../utils/analytics';
@@ -6,8 +6,11 @@ import { CTA_IDS, FUNNEL_STEPS, trackFunnelStart } from '../utils/analytics';
 const Welcome = memo(({ onNext }) => {
     const { title, text, button } = copy.welcome;
 
-    const handleClick = () => {
+    useEffect(() => {
         trackFunnelStart();
+    }, []);
+
+    const handleClick = () => {
         onNext();
     };
 

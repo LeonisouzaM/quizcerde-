@@ -96,7 +96,6 @@ const Offer = ({ onNext }) => {
 
     useEffect(() => {
         trackOfferView();
-        trackCheckoutView();
 
         if (!document.querySelector('script[src="https://fast.wistia.com/player.js"]')) {
             const s = document.createElement('script');
