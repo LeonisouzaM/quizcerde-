@@ -115,8 +115,8 @@ export function trackEvent(eventName, params = {}) {
             'funnel_start': { name: 'ViewContent' },
             'result_view': { name: 'Lead' }, // Final do Quiz (quando vira lead)
             'offer_view': { name: 'ViewContent' } // Página de Vendas (SPA)
-            // REMOVED: checkout_view (InitiateCheckout) so it NEVER fires in the SPA. 
-            // The Checkout URL (Hotmart) handles its own InitiateCheckout.
+            // REMOVED: checkout_view e certificate_view. 
+            // A Hotmart gerenciará nativamente os eventos de InitiateCheckout e Purchase.
         };
 
         const fbqEvent = standardEventMapping[eventName];
