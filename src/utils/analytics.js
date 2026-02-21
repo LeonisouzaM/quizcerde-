@@ -47,9 +47,9 @@ export const CTA_IDS = {
     OFERTA_VSL_CTA: 'cta_oferta_vsl_cta',
 
     // Step 03 — Checkout & Redirect
-    CHECKOUT_UNLOCK_CERTIFICATE: 'cta_checkout_unlock_certificate',
-    CHECKOUT_SIMULATE_PAYMENT: 'cta_checkout_simulate_payment',
-    CHECKOUT_DOWNLOAD_PDF: 'cta_checkout_download_pdf',
+    CHECKOUT_UNLOCK_CERTIFICATE: 'cta_get_access',
+    CHECKOUT_SIMULATE_PAYMENT: 'cta_simulate_access',
+    CHECKOUT_DOWNLOAD_PDF: 'cta_access_pdf',
 };
 
 // ── GA4 Event Names ───────────────────────────────────────────
