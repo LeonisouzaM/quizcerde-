@@ -188,7 +188,7 @@ const Offer = ({ onNext }) => {
                     PAGO ÚNICO
                 </p>
                 <p style={{ color: '#6b7280', fontSize: '0.82rem', marginBottom: '2px' }}>
-                    MX$ <span style={{ textDecoration: 'line-through', color: '#ef4444' }}>{payment.originalPrice.replace('MX$ ', '')}</span>
+                    $ <span style={{ textDecoration: 'line-through', color: '#ef4444' }}>{payment.originalPrice.replace('$ ', '')}</span>
                 </p>
                 <p style={{ fontSize: '2.2rem', fontWeight: 900, color: '#16a34a', lineHeight: 1, marginBottom: '6px' }}>
                     {payment.price}

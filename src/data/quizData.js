@@ -75,8 +75,8 @@ export const copy = {
       "<b>Acceso inmediato</b> vía WhatsApp o e-mail",
       "<b>Registro interno</b> para verificación futura"
     ],
-    originalPrice: "MX$ 497,00",
-    price: "MX$ 185,60",
+    originalPrice: "$ 27.00",
+    price: "$ 9.90",
     savings: "AHORRAS 63%",
     priceSubtext: "Menos que el valor de un servicio básico y válido de forma permanente.",
     footerText: "Este valor es una tasa operativa simbólica, destinada a cubrir costos de emisión, almacenamiento seguro y mantenimiento de la plataforma de verificación.",
