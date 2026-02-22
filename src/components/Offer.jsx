@@ -231,17 +231,17 @@ const Offer = ({ onNext }) => {
                 marginBottom: '8px'
             }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><Lock size={11} /> Pago seguro</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><CreditCard size={11} /> OXXO / SPEI</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><CreditCard size={11} /> Tarjetas y PayPal</span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><MessageCircle size={11} /> WhatsApp</span>
             </div>
 
             {/* Payment badges */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '16px' }}>
-                {['Visa', 'Mastercard', 'OXXO', 'SPEI'].map(m => (
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                {['Visa', 'Mastercard', 'Amex', 'PayPal', 'Mercado Pago'].map(m => (
                     <span key={m} style={{
                         padding: '3px 8px', border: '1px solid #d1d5db', borderRadius: '4px',
                         fontSize: '0.65rem', fontWeight: 600,
-                        color: m === 'Mastercard' ? '#ef4444' : m === 'OXXO' ? '#f59e0b' : m === 'SPEI' ? '#16a34a' : '#1f2937',
+                        color: m === 'Mastercard' ? '#ef4444' : m === 'PayPal' ? '#003087' : m === 'Mercado Pago' ? '#00beef' : m === 'Amex' ? '#007bc1' : '#1f2937',
                         background: '#fff'
                     }}>{m}</span>
                 ))}
