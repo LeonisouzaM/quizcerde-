@@ -114,9 +114,8 @@ export function trackEvent(eventName, params = {}) {
         const standardEventMapping = {
             'funnel_start': { name: 'ViewContent' },
             'result_view': { name: 'Lead' }, // Final do Quiz (quando vira lead)
-            'offer_view': { name: 'ViewContent' } // Página de Vendas (SPA)
-            // REMOVED: checkout_view e certificate_view. 
-            // A Hotmart gerenciará nativamente os eventos de InitiateCheckout e Purchase.
+            'offer_view': { name: 'ViewContent' }, // Página de Vendas (SPA)
+            'checkout_cta_click': { name: 'InitiateCheckout' } // Clique no botão de compra (CRO-optimized)
         };
 
         const fbqEvent = standardEventMapping[eventName];
