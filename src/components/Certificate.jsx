@@ -8,7 +8,7 @@ import { CTA_IDS, FUNNEL_STEPS, trackCertificateView, trackCertificateDownload }
 const Certificate = () => {
     const [name, setName] = useState('');
     const [qrUrl, setQrUrl] = useState('');
-    const [date] = useState(() => new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' }));
+    const [date] = useState(() => new Date().toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' }));
     const [validationCode] = useState(() => Math.random().toString(36).substring(2, 10).toUpperCase());
     const certRef = useRef(null);
 

@@ -4,26 +4,26 @@ import { Star, CheckCircle2 } from 'lucide-react';
 const testimonials = [
     {
         name: "Pedro R.",
-        location: "Monterrey, NL",
+        location: "Mecánico Automotriz",
         text: "Ya lo puse en el taller y los clientes hasta me tratan con más respeto. ¡Sí conviene!",
         evidence: "/mechanic-evidence-1.jpg"
     },
     {
         name: "Jose L.",
-        location: "CDMX",
-        text: "Por el precio está regalado. El examen no está difícil si le sabes. 100% recomendado.",
+        location: "Especialista en Motores",
+        text: "Por el precio está regalado. El examen no está difícil si tienes experiencia. 100% recomendado.",
         evidence: "/mechanic-evidence-2.jpg"
     },
     {
         name: "Mateo R.",
-        location: "Guadalajara, JAL",
-        text: "20 años en la chamba y nunca tuve un papel. Ahora cobro mejor mis reparaciones.",
+        location: "Taller Multimarca",
+        text: "20 años en el oficio y nunca tuve un papel. Ahora cobro mejor mis reparaciones.",
         evidence: "/mechanic-evidence-3.jpg"
     },
     {
         name: "Javier H.",
-        location: "Puebla, PUE",
-        text: "Me llegó el PDF al toque. Lo imprimí y se ve de lujo en la pared del taller.",
+        location: "Mecánico de Motos",
+        text: "Me llegó el PDF de inmediato. Lo imprimí y se ve de lujo en la pared del taller.",
         evidence: "/mechanic-evidence-4.jpg"
     }
 ];
@@ -39,7 +39,7 @@ const Testimonials = () => {
                 marginBottom: '14px',
                 lineHeight: '1.3'
             }}>
-                Lo que dice la raza <span style={{ color: '#16a34a' }}>Certificada</span> 🇲🇽
+                Lo que dicen los <span style={{ color: '#16a34a' }}>Certificados</span> ✅
             </h4>
 
             {/* 2-Column Compact Grid */}
@@ -128,7 +128,7 @@ const Testimonials = () => {
                 padding: '8px 16px', borderRadius: '9999px',
                 width: 'fit-content', margin: '16px auto 0'
             }}>
-                <span style={{ fontSize: '14px' }}>🇲🇽</span>
+                <span style={{ fontSize: '14px' }}>✅</span>
                 <span>+2,847 mecánicos certificados</span>
             </div>
         </div>
