@@ -16,6 +16,8 @@ import {
     trackCheckoutRedirect
 } from '../utils/analytics';
 
+import confetti from 'canvas-confetti';
+
 /* ─── FAQ Data ─────────────────────────────────── */
 const faqItems = [
     {
@@ -97,6 +99,22 @@ const Offer = ({ onNext }) => {
     useEffect(() => {
         trackOfferView();
 
+        // Success Confetti
+        confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 0.6 },
+            colors: ['#16a34a', '#22c55e', '#bbf7d0']
+        });
+        confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 0.6 },
+            colors: ['#16a34a', '#22c55e', '#bbf7d0']
+        });
+
         if (!document.querySelector('script[src="https://fast.wistia.com/player.js"]')) {
             const s = document.createElement('script');
             s.src = "https://fast.wistia.com/player.js";
@@ -140,18 +158,55 @@ const Offer = ({ onNext }) => {
     return (
         <StepLayout data-funnel-step={FUNNEL_STEPS.STEP_02_OFERTA_PRINCIPAL}>
 
+            {/* ─── RESULT SUMMARY (NEW) ─────────────────── */}
+            <div style={{
+                background: '#fff',
+                border: '1px solid #bbf7d0',
+                borderRadius: '12px',
+                padding: '16px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+            }}>
+                <p style={{ color: '#16a34a', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '8px' }}>
+                    ¡Evaluación Completada Exitosamente!
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
+                    <div style={{ textAlign: 'center' }}>
+                        <p style={{ fontSize: '1.5rem', fontWeight: 900, color: '#111827', margin: 0 }}>92%</p>
+                        <p style={{ fontSize: '0.65rem', color: '#6b7280', textTransform: 'uppercase' }}>Puntuación</p>
+                    </div>
+                    <div style={{ width: '1px', height: '30px', background: '#e5e7eb' }} />
+                    <div style={{ textAlign: 'center' }}>
+                        <p style={{ fontSize: '1.1rem', fontWeight: 800, color: '#16a34a', margin: 0 }}>APROBADO</p>
+                        <p style={{ fontSize: '0.65rem', color: '#6b7280', textTransform: 'uppercase' }}>Status Final</p>
+                    </div>
+                </div>
+            </div>
+
             {/* ─── ABOVE THE FOLD ──────────────────────── */}
 
-            {/* Timer */}
+            {/* Scarcity & Timer Row */}
             <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-                background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: '6px',
-                padding: '8px 12px', marginBottom: '12px', width: '100%'
+                display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', width: '100%'
             }}>
-                <Clock size={15} style={{ color: '#92400e' }} />
-                <span style={{ color: '#92400e', fontWeight: 600, fontSize: '0.85rem' }}>
-                    Oferta expira en <strong style={{ color: '#dc2626' }}>{fmt(timeLeft)}</strong>
-                </span>
+                <div style={{
+                    textAlign: 'center', background: '#fee2e2', color: '#b91c1c',
+                    fontSize: '0.75rem', fontWeight: 800, padding: '4px 8px', borderRadius: '4px',
+                    textTransform: 'uppercase'
+                }}>
+                    ⚠️ ÚLTIMAS VAGAS PARA EMISIÓN HOJE
+                </div>
+                <div style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                    background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: '6px',
+                    padding: '8px 12px'
+                }}>
+                    <Clock size={15} style={{ color: '#92400e' }} />
+                    <span style={{ color: '#92400e', fontWeight: 600, fontSize: '0.85rem' }}>
+                        Oferta expira en <strong style={{ color: '#dc2626' }}>{fmt(timeLeft)}</strong>
+                    </span>
+                </div>
             </div>
 
             {/* Headline — Bold, compact */}
@@ -279,6 +334,15 @@ const Offer = ({ onNext }) => {
             <h4 style={{ textAlign: 'center', fontWeight: 700, fontSize: '0.95rem', color: '#111827', marginBottom: '10px' }}>
                 {sectionHeader}
             </h4>
+
+            {/* Mockup Image */}
+            <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                <img
+                    src="/bonus_mockups_mechanic.png"
+                    alt="Bônus exclusivos"
+                    style={{ width: '100%', maxWidth: '300px', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                />
+            </div>
 
             <div style={{ marginBottom: '16px' }}>
                 {bonuses.map((b, i) => (

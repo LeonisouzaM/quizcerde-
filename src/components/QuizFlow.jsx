@@ -29,16 +29,19 @@ const Certificate = lazy(() => import('./Certificate'));
  *   17  → Certificate (post-conversion)
  */
 const QuizFlow = ({ step, onNext, setArea, handleAnswer, currentQuestionData, totalQuestions }) => {
+    const loadingStep = 5 + totalQuestions;
+    const offerStep = loadingStep + 1;
+    const certificateStep = offerStep + 1;
+
     return (
         <LazyMotion features={domAnimation}>
             <Suspense fallback={<div className="flex items-center justify-center h-40"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#16a34a]"></div></div>}>
 
                 {/* ── Step_01_Quiz_Avaliacao ───────────────── */}
-                {step === 2 && <SocialProof onNext={onNext} />}
                 {step === 3 && <AreaSelection onNext={onNext} setArea={setArea} />}
                 {step === 4 && <Authority onNext={onNext} />}
 
-                {step >= 5 && step < 14 && (
+                {step >= 5 && step < loadingStep && (
                     <QuizQuestion
                         questionData={currentQuestionData}
                         onAnswer={handleAnswer}
@@ -47,14 +50,14 @@ const QuizFlow = ({ step, onNext, setArea, handleAnswer, currentQuestionData, to
                     />
                 )}
 
-                {step === 14 && <Loading onComplete={onNext} />}
+                {step === loadingStep && <Loading onComplete={onNext} />}
 
                 {/* ── Step_02_Oferta_Principal ─────────────── */}
-                {step === 15 && <Result onNext={onNext} />}
-                {step === 16 && <Offer onNext={onNext} />}
+                {/* Result is now merged into Offer */}
+                {step === offerStep && <Offer onNext={onNext} />}
 
                 {/* ── Step_03_Checkout_Redirect ────────────── */}
-                {step === 17 && <Certificate />}
+                {step === certificateStep && <Certificate />}
 
             </Suspense>
         </LazyMotion>

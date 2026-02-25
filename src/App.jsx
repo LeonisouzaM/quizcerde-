@@ -35,19 +35,17 @@ function App() {
     const [area, setArea] = useState('');
     const [answers, setAnswers] = useState({});
 
-    const nextStep = () => setStep(s => s + 1);
+    const nextStep = () => {
+        setStep(s => {
+            if (s === 1) return 3; // Skip Step 2 (Social Proof) per recommendation
+            return s + 1;
+        });
+    };
 
     const handleAnswer = (option) => {
-        // Save answer
         const currentQuestionId = questions[step - 5].id;
         setAnswers(prev => ({ ...prev, [currentQuestionId]: option }));
-
-        // Check if it's the last question
-        if (step - 5 === questions.length - 1) {
-            nextStep(); // Go to loading
-        } else {
-            nextStep(); // Go to next question
-        }
+        nextStep();
     };
 
     const currentQuestionData = step >= 5 && step < 5 + questions.length

@@ -4,7 +4,8 @@ export const copy = {
     title: "Bienvenido al Manual del Mecánico – Certificación Profesional",
     text: [
       "Antes de emitir tu certificado, necesitamos evaluar rápidamente tu nivel de conocimiento en mecánica.",
-      "Responderás 10 preguntas sencillas y, al final, tu certificado autenticado quedará disponible para descarga e impresión.",
+      "Más de 3,500 mecánicos ya han emitido seu certificado para gerar maior confiança com seus clientes e destacar seu profissionalismo.",
+      "Responderás algumas perguntas técnicas e, ao final, seu certificado autenticado ficará disponível para descarga imediata.",
       "Nuestro objetivo es validar el conocimiento de quienes ya trabajan en mecánica, brindando mayor credibilidad y reconocimiento profesional.",
       "¿Podemos comenzar?"
     ],
@@ -12,11 +13,11 @@ export const copy = {
   },
   socialProof: {
     text: [
-      "Más de 3,000 mecánicos ya han emitido su certificado a través del Manual del Mecánico, utilizándolo para generar mayor confianza con sus clientes y destacar su profesionalismo dentro del taller.",
-      "Esta certificación no tiene como objetivo formar nuevos mecánicos.",
-      "Existe para reconocer a quienes ya ejercen la profesión y desean comprobar su experiencia y conocimiento técnico.",
-      "Ahora responderás algunas preguntas relacionadas con tu área.",
-      "Al finalizar, tu certificado autenticado estará disponible para descarga en PDF."
+      "Más de 3,000 mecánicos já emitiram o seu certificado, utilizando para gerar confiança.",
+      "Esta certificação não tem objetivo de formar novos mecânicos.",
+      "Existe para reconhecer quem já exerce a profissão.",
+      "Agora você responderá perguntas da sua área.",
+      "Ao finalizar, seu certificado estará disponível em PDF."
     ],
     button: "COMENZAR EVALUACIÓN"
   },
@@ -75,8 +76,8 @@ export const copy = {
       "<b>Acceso inmediato</b> vía WhatsApp o e-mail",
       "<b>Registro interno</b> para verificación futura"
     ],
-    originalPrice: "$ 27.00",
-    price: "$ 9.90",
+    originalPrice: "$ 37.00",
+    price: "$ 14.90",
     savings: "AHORRAS 63%",
     priceSubtext: "Menos que el valor de un servicio básico y válido de forma permanente.",
     footerText: "Este valor es una tasa operativa simbólica, destinada a cubrir costos de emisión, almacenamiento seguro y mantenimiento de la plataforma de verificación.",
@@ -177,6 +178,36 @@ export const questions = [
       { text: "Ruido metálico", correct: false },
       { text: "Frenos bloqueados", correct: false },
       { text: "Revoluciones irregulares", correct: false }
+    ]
+  },
+  {
+    id: 10,
+    question: "¿Qué componente regula la presión de combustible en un sistema de inyección electrónica?",
+    options: [
+      { text: "Regulador de presión de riel", correct: true },
+      { text: "Bomba de agua", correct: false },
+      { text: "Sensor de oxígeno", correct: false },
+      { text: "Cuerpo de aceleración", correct: false }
+    ]
+  },
+  {
+    id: 11,
+    question: "¿Cuál es el síntoma más común de que el sensor MAF (Mass Air Flow) está sucio o dañado?",
+    options: [
+      { text: "Ralentí inestable y tirones al acelerar", correct: true },
+      { text: "Fuga de anticongelante", correct: false },
+      { text: "Desgaste irregular de llantas", correct: false },
+      { text: "Luces bajas", correct: false }
+    ]
+  },
+  {
+    id: 12,
+    question: "Si un motor tiene humo azul constante por el escape, ¿qué indica?",
+    options: [
+      { text: "Quemado de aceite (anillos o sellos dañados)", correct: true },
+      { text: "Exceso de combustible", correct: false },
+      { text: "Paso de anticongelante", correct: false },
+      { text: "Filtro de aire tapado", correct: false }
     ]
   }
 ];
