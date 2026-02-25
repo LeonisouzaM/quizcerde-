@@ -4,8 +4,8 @@ export const copy = {
     title: "Bienvenido al Manual del Mecánico – Certificación Profesional",
     text: [
       "Antes de emitir tu certificado, necesitamos evaluar rápidamente tu nivel de conocimiento en mecánica.",
-      "Más de 3,500 mecánicos ya han emitido seu certificado para gerar maior confiança com seus clientes e destacar seu profissionalismo.",
-      "Responderás algumas perguntas técnicas e, ao final, seu certificado autenticado ficará disponível para descarga imediata.",
+      "Más de 3,500 mecánicos ya han emitido su certificado para generar mayor confianza con sus clientes y destacar su profesionalismo.",
+      "Responderás algunas preguntas técnicas y, al final, tu certificado autenticado quedará disponible para descarga inmediata.",
       "Nuestro objetivo es validar el conocimiento de quienes ya trabajan en mecánica, brindando mayor credibilidad y reconocimiento profesional.",
       "¿Podemos comenzar?"
     ],
@@ -13,11 +13,11 @@ export const copy = {
   },
   socialProof: {
     text: [
-      "Más de 3,000 mecánicos já emitiram o seu certificado, utilizando para gerar confiança.",
-      "Esta certificação não tem objetivo de formar novos mecânicos.",
-      "Existe para reconhecer quem já exerce a profissão.",
-      "Agora você responderá perguntas da sua área.",
-      "Ao finalizar, seu certificado estará disponível em PDF."
+      "Más de 3,000 mecánicos ya han emitido su certificado, utilizándolo para generar mayor confianza.",
+      "Esta certificación no tiene el objetivo de formar nuevos mecánicos.",
+      "Existe para reconocer a quienes ya ejercen la profesión.",
+      "Ahora responderás preguntas de tu área.",
+      "Al finalizar, tu certificado estará disponible en PDF."
     ],
     button: "COMENZAR EVALUACIÓN"
   },

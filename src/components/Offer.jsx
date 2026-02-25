@@ -181,7 +181,7 @@ const Offer = ({ onNext }) => {
                     fontSize: '0.75rem', fontWeight: 800, padding: '4px 8px', borderRadius: '4px',
                     textTransform: 'uppercase'
                 }}>
-                    ⚠️ ÚLTIMAS VAGAS PARA EMISIÓN HOJE
+                    ⚠️ ÚLTIMAS VACANTES PARA EMISIÓN HOY
                 </div>
                 <div style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
