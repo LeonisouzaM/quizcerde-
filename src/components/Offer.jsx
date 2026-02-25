@@ -115,20 +115,6 @@ const Offer = ({ onNext }) => {
             colors: ['#16a34a', '#22c55e', '#bbf7d0']
         });
 
-        if (!document.querySelector('script[src="https://fast.wistia.com/player.js"]')) {
-            const s = document.createElement('script');
-            s.src = "https://fast.wistia.com/player.js";
-            s.async = true;
-            document.body.appendChild(s);
-        }
-        if (!document.querySelector('script[src*="jhnp0kvf2f.js"]')) {
-            const s = document.createElement('script');
-            s.src = "https://fast.wistia.com/embed/jhnp0kvf2f.js";
-            s.async = true;
-            s.type = "module";
-            document.body.appendChild(s);
-        }
-
         timerRef.current = setInterval(() => {
             setTimeLeft(prev => (prev > 0 ? prev - 1 : 0));
         }, 1000);
@@ -223,15 +209,7 @@ const Offer = ({ onNext }) => {
                 {title}
             </h2>
 
-            {/* Compact Video */}
-            <div style={{
-                width: '100%', maxWidth: '260px', margin: '0 auto 12px',
-                borderRadius: '10px', overflow: 'hidden',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                border: '2px solid #16a34a'
-            }}>
-                <wistia-player media-id="jhnp0kvf2f" aspect="0.5625" player-color="#16a34a"></wistia-player>
-            </div>
+
 
             {/* Price Card — Visible without scroll */}
             <div style={{
